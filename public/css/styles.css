@@ -4,3 +4,143 @@
 *:after {
   box-sizing: border-box;
 }
+
+.lora-normal {
+  font-family: "Lora", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.outfit-normal {
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+:root {
+  --primary-color: #2a0209;
+  --secondary-color: #ffffff;
+}
+body {
+  margin: 1%
+}
+main {
+  margin: 2%;
+}
+header {
+  padding: 1%;
+}
+ h1{
+  margin: 3% 1%;
+}
+ #tools a {
+  text-decoration: none;
+  color: black;
+}
+#tools a {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+}
+nav {
+  background-color: black;
+  padding: 2% ;
+}
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+nav ul {
+  list-style-type: none;
+}
+nav ul li {
+  color: white;
+}
+.welcome-1 {
+  display: flex;
+  position: relative;
+}
+.welcome-2 {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  background-color: rgba(0, 0, 0, 0.05);
+  z-index: 2;
+}
+.welcome-1 picture {
+  position: absolute;
+  left: 25%;
+  bottom: 1%;
+  z-index: 1;
+}
+.welcome-2 ul li {
+  padding: 0.5% 0;
+  list-style-type: none;
+  color: var(--primary-color);
+  font-size: 95%;
+}
+.welcome-2 ul li:first-of-type {
+  font-size: 120%;
+}
+.welcome-2 button {
+  padding: 0.5% 0;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  width: 50%;
+  margin-left: 20%;
+  margin-top: -1rem;
+}
+.reviews ul li{
+  margin: 1% 0;
+}
+.upgrades-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5%;
+}
+.upgrades-2 a {
+  margin-left: 35%;
+}
+.upgrades-2 div {
+background-color: var(--primary-color);
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 2%;
+margin: 2%;
+min-height: 122px;
+}
+footer {
+  margin: 5% 2%;
+}
+
+/* h2{
+  margin-left: 3%;
+} */
+@media screen and (min-width: 768px) {
+  h1{
+    margin: 1%;
+  }
+  nav {
+    padding: 1%;
+  }
+ .welcome-1 picture {
+  bottom: 90%;
+  height: 40%;
+  width: auto;
+  left: 8%;
+  
+ }
+ .welcome h2{
+  margin-bottom: 5%;
+ }
+ .welcome-2 {
+  width: 15%;
+}
+.reviews, .upgrades {
+  margin-top: 13%;
+}
+.reviewUpgrade {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+}
