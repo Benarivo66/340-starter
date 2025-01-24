@@ -12,6 +12,7 @@ const static = require("./routes/static");
 const expressLayouts = require("express-ejs-layouts");
 const baseController = require("./controllers/baseController");
 const inventoryRoute = require("./routes/inventoryRoute");
+const intErrRoute = require("./routes/intErrRoute");
 const utilities = require("./utilities");
 
 /* ***********************
@@ -27,6 +28,7 @@ app.set("layout", "./layouts/layout"); // not at views root
 app.use(static);
 app.get("/", utilities.handleErrors(baseController.buildHome));
 app.use("/inv", inventoryRoute);
+app.use("/intentionalError", intErrRoute)
 app.use(async (req, res, next) => {
   next({ status: 404, message: "Sorry, we appear to have lost that page." });
 });
