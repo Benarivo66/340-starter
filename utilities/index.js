@@ -50,9 +50,33 @@ Util.buildClassificationGrid = async function(data){
     })
     grid += '</ul>'
   } else { 
-    grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
+    grid += '<p class="notice">Sorry, no matching vehicle could be found.</p>'
   }
   return grid
+}
+
+Util.buildSingleInventory = async function(data){
+  let inv;
+  if(data)
+  inv = `
+  <div class="invDetail-1">
+  <img alt="${data.inv_make}, ${data.inv_make}" src="${data.inv_image}">
+  <div class="invDetail-2">
+  <h2 class="lora-normal">${data.inv_make}, ${data.inv_model}</h2>
+  <div class="invDetail-3">
+  <span><b>Manufacturer</b>: ${data.inv_make}</span>
+  <span><b>Model</b>: ${data.inv_model}</span>
+  <span><b>Production Year</b>: ${data.inv_year}</span>
+  <span><b>Description</b>: ${data.inv_description}</span>
+  <span><b>Price</b>: $${new Intl.NumberFormat('en-US').format(data.inv_price)}</span>
+  <span><b>Mileage</b>: ${new Intl.NumberFormat('en-US').format(data.inv_miles)}</span>
+  <span><b>External Color</b>: ${data.inv_color}</span>
+  </div>
+  </div>
+  </div>
+  `;
+  else inv += '<p class="notice">Sorry, no matching vehicle could be found.</p>'
+  return inv;
 }
 
 Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
