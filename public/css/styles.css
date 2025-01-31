@@ -206,7 +206,7 @@ button {
   background-color: #0056b3;
 }
 #classificationNameMsg {
-  color: red;
+  color: var(--primary-color);
 }
 textarea {
   width: 100%;
