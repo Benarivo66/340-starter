@@ -16,9 +16,8 @@ const accRoute = require("./routes/accountRoute");
 const intErrRoute = require("./routes/intErrRoute");
 const utilities = require("./utilities");
 const session = require("express-session")
-const pool = require('./database/')
+const pool = require("./database/")
 const bodyParser = require("body-parser")
-
 
 /* ***********************
  * View Engine and Templates
@@ -26,8 +25,6 @@ const bodyParser = require("body-parser")
 app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.set("layout", "./layouts/layout"); // not at views root
-
-
 
 app.use(session({
   store: new (require('connect-pg-simple')(session))({
@@ -54,7 +51,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(static);
 app.get("/", utilities.handleErrors(baseController.buildHome));
 app.use("/inv", inventoryRoute);
-app.use("/account", accRoute)
+app.use("/account", accRoute);
 app.use("/intentionalError", intErrRoute)
 app.use(async (req, res, next) => {
   next({ status: 404, message: "Sorry, we appear to have lost that page." });

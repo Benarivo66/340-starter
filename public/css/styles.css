@@ -131,7 +131,7 @@ footer {
 }
 
 /* LOGIN */
-.login-container {
+.login-container, .addClassfnContainer, .addInvContainer {
   background: white;
   padding: 2rem;
   border-radius: 8px;
@@ -175,7 +175,13 @@ footer {
 .login-container a:hover {
   text-decoration: underline;
 }
-
+.vehicleMgt{
+  display: flex;
+  flex-direction: column;
+}
+.vehicleMgt a{
+  margin: 1rem;
+}
 /* REGISTER */
 .form-container {
   background-color: #ffffff;
@@ -184,24 +190,6 @@ footer {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 300px;
 }
-/* .form-group {
-  margin-bottom: 15px;
-}
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-.form-group input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-.form-group input:focus {
-  border-color: #007bff;
-  outline: none;
-} */
 .submit-btn {
   width: 100%;
   padding: 10px;
@@ -209,16 +197,27 @@ footer {
   color: #ffffff;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
   font-size: 16px;
+}
+button {
+  cursor: pointer;
 }
 .submit-btn:hover {
   background-color: #0056b3;
 }
-
-
-
-
+#classificationNameMsg {
+  color: red;
+}
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
+}
 @media screen and (min-width: 768px) {
   h1 {
     margin: 1%;
