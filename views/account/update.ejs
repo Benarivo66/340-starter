@@ -20,7 +20,8 @@
 
       <label for="email">Email</label>
       <input type="email" name="account_email" id="email" value="<%= locals.accountData.account_email %>" required />
-      <input type="hidden" name="account_id" value="<%= locals.accountData.account_id %>">
+      <label for="account_id"></label>
+      <input type="hidden" id="account_id" name="account_id" value="<%= locals.accountData.account_id %>">
 
       <button type="submit">Update Account</button>
     </form>
@@ -31,8 +32,8 @@
     <form action="/account/change-password" method="POST">
       <label for="new-password">New Password</label>
       <input type="password" name="account_password" id="new-password" required />
-
-      <input type="hidden" name="account_id" value="<%= locals.accountData.account_id %>">
+      <label for="account_id"></label>
+      <input type="hidden" id="account_id" name="account_id" value="<%= locals.accountData.account_id %>">
     
       <button type="submit">Change Password</button>
     </form>
