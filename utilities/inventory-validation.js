@@ -65,10 +65,28 @@ validate.checkInventoryData = async (req, res, next) => {
   let errors = validationResult(req);
   if (!errors.isEmpty()) {
     let nav = await utilities.getNav();
-    const classificationList = await utilities.buildClassificationList();
+    let classificationList = await utilities.buildClassificationList();
     res.render("inventory/add-inventory", {
       errors,
       title: "Add Inventory",
+      nav,
+      classificationList,
+      ...req.body,
+    });
+    return;
+  }
+  next();
+};
+
+validate.checkUpdateData = async (req, res, next) => {
+  const { inv_make, inv_model } = req.body;
+  let errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav();
+    const classificationList = await utilities.buildClassificationList();
+    res.render("inventory/edit-inventory", {
+      errors,
+      title: `Edit ${inv_make} ${inv_model}`,
       nav,
       classificationList,
       ...req.body,

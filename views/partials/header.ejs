@@ -1,6 +1,12 @@
-<header id="top-header">
-      <h1 class="lora-normal">CSE Motors</h1>
+  <header id="top-header">
+    <h1 class="lora-normal">CSE Motors</h1>
     <div id="tools">
-      <a title="Click to log in" href="/account/login">MY ACCOUNT</a>
+        <% if (locals.loggedin) { %>
+            <form action="/account/logout" method="GET" style="display: inline;">
+                <button type="submit">Logout</button>
+            </form>
+        <% } else { %>
+            <a title="Click to log in" href="/account/login">MY ACCOUNT</a>
+        <% } %>
     </div>
-  </header>
+</header>

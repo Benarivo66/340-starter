@@ -42,7 +42,7 @@ nav a {
   text-decoration: none;
   color: black;
 }
-#tools a {
+#tools {
   position: absolute;
   top: 1%;
   right: 1%;
@@ -175,13 +175,25 @@ footer {
 .login-container a:hover {
   text-decoration: underline;
 }
-.vehicleMgt{
+.vehicleMgt, .selectClassification{
   display: flex;
   flex-direction: column;
 }
-.vehicleMgt a{
+.vehicleMgt a, .selectClassification *{
   margin: 1rem;
 }
+#classificationList {
+  width: 300px;
+}
+td {
+  width: 20%;
+  padding: 1%;
+}
+.editInvContainer form, .deleteInvContainer form {
+  width: 300px;
+}
+
+
 /* REGISTER */
 .form-container {
   background-color: #ffffff;
@@ -218,6 +230,58 @@ textarea {
   font-size: 16px;
   resize: none;
 }
+.accMgtContainer * {
+  margin: 1rem
+}
+
+.account-update, .change-password {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.account-update form, .change-password form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.account-update label, .change-password label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.account-update input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.change-password button, .account-update button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.change-password button :hover, .account-update button :hover {
+  background-color: #0056b3;
+}
+
+input[type="password"] {
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
+
 @media screen and (min-width: 768px) {
   h1 {
     margin: 1%;
