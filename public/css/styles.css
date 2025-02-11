@@ -1,5 +1,4 @@
-****** Change Box Model **************
-*,
+****** Change Box Model ************** *,
 *:before,
 *:after {
   box-sizing: border-box;
@@ -20,7 +19,7 @@
   --secondary-color: #ffffff;
 }
 body {
-  margin: 1%
+  margin: 1%;
 }
 main {
   margin: 2%;
@@ -28,17 +27,17 @@ main {
 header {
   padding: 1%;
 }
-nav ul{
+nav ul {
   display: flex;
 }
 nav a {
   color: white;
   text-decoration: none;
 }
- h1{
+h1 {
   margin: 3% 1%;
 }
- #tools a {
+#tools a {
   text-decoration: none;
   color: black;
 }
@@ -49,7 +48,7 @@ nav a {
 }
 nav {
   background-color: black;
-  padding: 2% ;
+  padding: 2%;
 }
 nav ul {
   display: flex;
@@ -96,7 +95,7 @@ nav ul li {
   margin-left: 20%;
   margin-top: -1rem;
 }
-.reviews ul li{
+.reviews ul li {
   margin: 1% 0;
 }
 .upgrades-1 {
@@ -108,13 +107,13 @@ nav ul li {
   margin-left: 35%;
 }
 .upgrades-2 div {
-background-color: var(--primary-color);
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 2%;
-margin: 2%;
-min-height: 122px;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  margin: 2%;
+  min-height: 122px;
 }
 .invDetail-3 {
   display: flex;
@@ -131,7 +130,9 @@ footer {
 }
 
 /* LOGIN */
-.login-container, .addClassfnContainer, .addInvContainer {
+.login-container,
+.addClassfnContainer,
+.addInvContainer {
   background: white;
   padding: 2rem;
   border-radius: 8px;
@@ -172,11 +173,13 @@ footer {
 .login-container a:hover {
   text-decoration: underline;
 }
-.vehicleMgt, .selectClassification{
+.vehicleMgt,
+.selectClassification {
   display: flex;
   flex-direction: column;
 }
-.vehicleMgt a, .selectClassification * {
+.vehicleMgt a,
+.selectClassification * {
   margin: 1rem;
 }
 #classificationList {
@@ -186,10 +189,10 @@ td {
   width: 20%;
   padding: 1%;
 }
-.editInvContainer form, .deleteInvContainer form {
+.editInvContainer form,
+.deleteInvContainer form {
   width: 300px;
 }
-
 
 /* REGISTER */
 .form-container {
@@ -226,10 +229,12 @@ textarea {
   resize: none;
 }
 .accMgtContainer * {
-  margin: 1rem
+  margin: 1rem;
 }
 
-.account-update, .change-password {
+.account-update,
+.change-password,
+.update-accountType {
   max-width: 500px;
   margin: 20px auto;
   padding: 20px;
@@ -239,25 +244,32 @@ textarea {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.account-update form, .change-password form{
+.account-update form,
+.change-password form,
+.update-accountType form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.account-update label, .change-password label {
+.account-update label,
+.change-password label,
+.update-accountType label {
   font-weight: bold;
   margin-top: 10px;
 }
 
-.account-update input {
+.account-update input,
+.update-accountType input {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
 }
 
-.change-password button, .account-update button {
+.change-password button,
+.account-update button,
+.update-accountType button {
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -266,7 +278,9 @@ textarea {
   margin-top: 10px;
 }
 
-.change-password button :hover, .account-update button :hover {
+.change-password button :hover,
+.account-update button :hover,
+.update-accountType button :hover {
   background-color: #0056b3;
 }
 
@@ -275,6 +289,23 @@ input[type="password"] {
   letter-spacing: 1px;
 }
 
+.accounts {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.account {
+  background-color: rgb(236, 220, 220);
+  width: 300px;
+  height: auto;
+  margin: 2%;
+  padding: 2%;
+}
+/* .account *{
+  : 2%;
+} */
+
 @media screen and (min-width: 768px) {
   h1 {
     margin: 1%;
@@ -282,37 +313,39 @@ input[type="password"] {
   nav {
     padding: 1%;
   }
- .welcome-1 picture {
-  bottom: 90%;
-  height: 40%;
-  width: auto;
-  left: 8%;
- }
- .welcome h2{
-  margin-bottom: 5%;
- }
- .welcome-2 {
-  width: 15%;
-}
-.reviews, .upgrades {
-  margin-top: 13%;
-}
-.reviewUpgrade {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-#inv-display{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.invDetail-1 {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.invDetail-2, .invDetail-3 {
-  width: 50%;
-}
+  .welcome-1 picture {
+    bottom: 90%;
+    height: 40%;
+    width: auto;
+    left: 8%;
+  }
+  .welcome h2 {
+    margin-bottom: 5%;
+  }
+  .welcome-2 {
+    width: 15%;
+  }
+  .reviews,
+  .upgrades {
+    margin-top: 13%;
+  }
+  .reviewUpgrade {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  #inv-display {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .invDetail-1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .invDetail-2,
+  .invDetail-3 {
+    width: 50%;
+  }
 }

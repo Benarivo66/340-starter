@@ -54,7 +54,17 @@ async function getAccountByID(account_id) {
     );
     return result.rows[0];
   } catch (error) {
-    return new Error("No matching email found");
+    return new Error("No matching id found");
+  }
+}
+async function getAllAccounts() {
+  try {
+    const result = await pool.query(
+      "SELECT account_id, account_firstname, account_lastname, account_email, account_type, account_password FROM account",
+    );
+    return result;
+  } catch (error) {
+    return new Error("No account found");
   }
 }
 
@@ -88,6 +98,17 @@ async function changePassword(account_password, account_id) {
   }
 }
 
+async function updateAccountType(account_type, account_email){
+  try {
+    const sql =
+  "UPDATE public.account SET account_type = $1 WHERE account_email = $2 RETURNING *";
+  return await pool.query(sql, [account_type, account_email]);
+  } catch (error) {
+    return error.message;
+  }
+  
+}
+
 module.exports = {
   registerAccount,
   checkExistingEmail,
@@ -95,4 +116,6 @@ module.exports = {
   updateAccount,
   getAccountByID,
   changePassword,
+  getAllAccounts,
+  updateAccountType
 };

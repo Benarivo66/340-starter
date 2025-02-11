@@ -211,7 +211,6 @@ async function changePassword(req, res) {
   const result = await accountModel.changePassword(
     hashedPassword, account_id
   );
-  console.log("password result", result);
   if (result) {
     req.flash(
       "notice",
@@ -236,11 +235,62 @@ async function changePassword(req, res) {
 }
 
 async function logout(req, res, next){
-  console.log("Logging out")
   res.clearCookie("jwt"); 
   req.flash("notice", "You have been logged out successfully.");
   res.redirect("/"); 
 }
+
+async function getAll(req, res, next){
+  let nav = await utilities.getNav();
+  let accounts
+  try {
+    accounts = await accountModel.getAllAccounts();
+  } catch (error) {
+    console.log(error.message)
+  }
+  const accountsGrid = utilities.buildAccountsGrid(accounts);
+  req.flash("notice", "Scroll to the bottom to update any account type");
+  res.render("account/getAll", {
+    title: "View All Accounts",
+    nav,
+    accountsGrid,
+    errors: null,
+  });
+}
+async function updateAccountType(req, res, next){
+  let nav = await utilities.getNav();
+  const {
+    account_email,
+    account_type
+  } = req.body;
+  const result = await accountModel.updateAccountType(account_type, account_email);
+  if (result) {
+    req.flash(
+      "notice",
+      `You have updated the account_type of user with email ${account_email}`
+    );
+    res.status(200).render("account/default", {
+      title: "Account Management",
+      account_firstname: null,
+      account_lastname: null,
+      account_email: null,
+      nav,
+      errors: null,
+    });
+  } else {
+    req.flash("notice", "account type update failed");
+    res.status(501).render("account/default", {
+      title: "Account Management",
+      account_firstname: null,
+      account_lastname: null,
+      account_email: null,
+      nav,
+      errors: null,
+    });
+  }
+}
+
+
 
 module.exports = {
   buildLogin,
@@ -251,5 +301,7 @@ module.exports = {
   viewUpdateAccount,
   updateAccount,
   changePassword,
-  logout
+  logout,
+  getAll,
+  updateAccountType
 };

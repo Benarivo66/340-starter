@@ -167,9 +167,7 @@ Util.checkAccountType = (req, res, next) => {
     req.flash("notice", "Please log in.");
     return res.redirect("/account/login");
   }
-
   const { account_type } = res.locals.accountData;
-
   if (account_type === "Employee" || account_type === "Admin") {
     next();
   } else {
@@ -177,5 +175,33 @@ Util.checkAccountType = (req, res, next) => {
     return res.redirect("/account/login");
   }
 };
+
+Util.checkAccountTypeForAdmin = (req, res, next) => {
+  if (!res.locals.accountData) {
+    req.flash("notice", "Please log in.");
+    return res.redirect("/account/login");
+  }
+  const { account_type } = res.locals.accountData;
+  if (account_type === "Admin") {
+    next();
+  } else {
+    req.flash("notice", "Unauthorized access. Admin only");
+    return res.redirect("/account/login");
+  }
+};
+
+Util.buildAccountsGrid = (accounts) => {
+  let grid = "<div class='accounts'>";
+  accounts.rows.forEach((row) => {
+    grid += "<div class='account'>";
+    grid += "<p><b>First Name:</b> " + row.account_firstname + "</p>";
+    grid += "<p><b>Last Name:</b> " + row.account_lastname + "</p>";
+    grid += "<p><b>Email:</b> " + row.account_email + "</p>";
+    grid += "<p><b>Account Type:</b> " + row.account_type + "</p>";
+    grid += "</div>";
+  });
+  grid += "</div>";
+  return grid;
+}
 
 module.exports = Util;

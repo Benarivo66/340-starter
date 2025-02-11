@@ -20,6 +20,7 @@ router.get(
   utilities.handleErrors(accountController.viewUpdateAccount)
 );
 router.get("/logout", utilities.handleErrors(accountController.logout))
+router.get("/getAll", utilities.checkAccountTypeForAdmin, utilities.handleErrors(accountController.getAll))
 
 router.post(
   "/register",
@@ -46,5 +47,12 @@ router.post(
   accValidate.checkUpdatePasswordData,
   utilities.handleErrors(accountController.changePassword)
 );
+router.post(
+  "/updateAccountType",
+  utilities.checkAccountTypeForAdmin,
+  accValidate.checkUpdateAccountTypeRules(),
+  accValidate.checkUpdateAccountTypeData,
+  utilities.handleErrors(accountController.updateAccountType)
+)
 
 module.exports = router;

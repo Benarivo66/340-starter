@@ -68,7 +68,6 @@ const utilities = require(".")
           .withMessage("A valid email is required.")
           .custom(async (account_email) => {
             const emailExists = await accountModel.checkExistingEmail(account_email)
-            console.log({emailExists})
             if (!emailExists){
               throw new Error("User not found")
             }
@@ -206,6 +205,43 @@ validate.checkLoginData = async (req, res, next) => {
             errors,
             title: "Account Update",
             nav,
+        });
+        return;
+    }
+    next();
+};
+
+validate.checkUpdateAccountTypeRules = () => {
+  return [
+    body("account_email")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isEmail()
+      .normalizeEmail()
+      .withMessage("A valid email is required."),
+
+    body("account_type")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isIn(["Client", "Employee", "Admin"])
+      .withMessage("Account type must be 'Client', 'Employee', or 'Admin'.")
+  ];
+}
+
+  validate.checkUpdateAccountTypeData = async (req, res, next) => {
+    let errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        let nav = await utilities.getNav();
+        res.render("account/default", {
+            errors,
+            title: "Account Management",
+            nav,
+            account_firstname: null,
+            account_lastname: null,
+            account_email: null
         });
         return;
     }
